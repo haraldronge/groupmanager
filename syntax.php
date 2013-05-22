@@ -95,7 +95,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
             'email' => 'harald@turtur.nl',
             'date' => '2012-09-01',
             'name' => 'Group Manager Syntax plugin',
-            'desc' => 'Embeddable group manager, based on groupmanager and usermanager from Alex Forencich',
+            'desc' => 'Embeddable group manager, based on groupmgr from Alex Forencich and usermanager from Christopher Smith',
             'url' => 'http://www.turtur.nl/',
             'original author' => 'Alex Forencich',
             'original email' => 'alex@alexforencich.com'
