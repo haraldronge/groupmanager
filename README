@@ -1,0 +1,55 @@
+groupmanager
+========
+
+_groupmanager_ is a simple group manager plugin for dokuwiki.
+It is based on the original plugin _groupmgr_ by Alex Forencich.
+The original plugin has not been updated since 2010.
+It actually even never left the devel-zone, but the idea is great!
+
+_groupmgr_ allowed easy modification of group membership by non-admins.
+This greatly simplifies management of collaborative projects by group-admins.
+_groupmanager_ adds functionality from the _usermanager_ by Christopher Smith to the original code of Alex Forencich.
+This way users can easily be found and added in wikis with many users.
+Also _groupmanager_ can be configured to add or delete users altogether if they are no member of a group.
+
+Installation
+------------
+
+Unzip into lib/plugins directory
+
+Syntax
+------
+
+Syntax:
+~~groupmanager|[groups to manage]|[allowed users and groups]~~
+
+Examples
+--------
+
+~~groupmanager|posters|@moderators~~
+Members of group 'posters' can be managed by group 'moderators'
+
+~~groupmanager|groupa, groupb|joe, @admin~~
+Members of 'groupa' and 'groupb' can be managed by user 'joe'
+and members of the group 'admin'
+
+Notes:
+
+1. Super user groups can only be managed by super users
+2. forbidden_groups configuration setting specifies groups that cannot be
+   edited with the plugin
+3. Users cannot remove themselves from the group that grants them access
+   to the group manager (including admins)
+4. The conf_namespace option specifies a separate namespace for configuration.
+   When the config namespace is used, a placeholder tag (~~groupmanager~~) can be
+   used in the actual page while the full tag is placed in the configuration
+   namespace at config_namespace:ID
+5. If require_conf_namespace is set, all configuration options placed in the
+   page are ignored, necesitating the use of the configuration namespace.
+   For security reasons, this is the default configuration.
+
+
+
+
+
+This file was modified by IntelliJ IDEA 11.1.3 for binding GitHub repository
