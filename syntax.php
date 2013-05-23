@@ -600,10 +600,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
     }
 
 
-    /**
-     * @todo disable fields which the backend can't change
-     */
-    function _htmlUserForm(&$renderer, $cmd, $user = '', $userdata = array(), $indent = 0)
+     function _htmlUserForm(&$renderer, $cmd, $user = '', $userdata = array(), $indent = 0)
     {
         global $conf;
         global $ID;
