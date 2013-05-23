@@ -36,7 +36,7 @@ if (!defined('DOKU_LF')) define('DOKU_LF', "\n");
 if (!defined('DOKU_TAB')) define('DOKU_TAB', "\t");
 if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
 
-if (!defined('DOKU_PLUGIN_IMAGES')) define('DOKU_PLUGIN_IMAGES', DOKU_INC . 'lib/plugins/groupmanager/images/');
+if (!defined('GROUPMANAGER_IMAGES')) define('GROUPMANAGER_IMAGES', DOKU_BASE . 'lib/plugins/groupmanager/images/');
 
 require_once DOKU_PLUGIN . 'syntax.php';
 
@@ -144,11 +144,11 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
 // groupmanager only
         $data = array(null, $state, $pos);
 
-        if (strlen($match) == 12)
+        if (strlen($match) == 16)
             return $data;
 
         // Strip away tag
-        $match = substr($match, 11, -2);
+        $match = substr($match, 15, -2);
 
         // split arguments
         $ar = explode("|", $match);
@@ -219,13 +219,14 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                 $page = file_get_contents($fn);
 
                 // find config tag
+
                 $i = preg_match('/~~groupmanager\|[^~]*?~~/', $page, $match);
 
                 if ($i == 0)
                     return false;
 
                 // parse config
-                $match = substr($match[0], 11, -2);
+                $match = substr($match[0], 15, -2);
 
                 $ar = explode("|", $match);
                 $match = array();
@@ -423,9 +424,9 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
 
                 $renderer->doc .= "      <tr><td colspan=\"" . $colspan . "\" class=\"centeralign\"  STYLE='border-bottom: 3px solid #ccc'>";
                 $renderer->doc .= "        <span class=\"medialeft\" >";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . DOKU_PLUGIN_IMAGES . "search.jpg\" onmouseover=\"this.src='" . DOKU_PLUGIN_IMAGES . "search_hilite.jpg'\" onmouseout=\"this.src='" . DOKU_PLUGIN_IMAGES . "search.jpg'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . DOKU_PLUGIN_IMAGES . "workgroup.jpg\" onmouseover=\"this.src='" . DOKU_PLUGIN_IMAGES . "workgroup_hilite.jpg'\" onmouseout=\"this.src='" . DOKU_PLUGIN_IMAGES . "workgroup.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . DOKU_PLUGIN_IMAGES . "everybody.jpg\" onmouseover=\"this.src='" . DOKU_PLUGIN_IMAGES . "everybody_hilite.jpg'\" onmouseout=\"this.src='" . DOKU_PLUGIN_IMAGES . "everybody.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "search.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "search_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "search.jpg'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "workgroup.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "everybody.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "everybody_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "everybody.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
                 $renderer->doc .= "        </span>";
                 $renderer->doc .= "        <span class=\"mediaright\">";
                 $renderer->doc .= "          <input type=\"submit\" name=\"fn[start]\" " . $page_buttons['start'] . " class=\"button\" value=\"" . $this->lang['start'] . "\" />";
@@ -463,6 +464,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                     // print user info
                     $renderer->doc .= "    <tr>\n";
                     if ($allow_delete_user) $renderer->doc .= "<td class=\"centeralign\"><input type=\"checkbox\" name=\"delete[" . $name . "]\ /></td>";
+
                     $renderer->doc .= "      <td>" . htmlspecialchars($name);
 
                     // need tag so user isn't pulled out of a group if it was added
@@ -546,9 +548,9 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                 $renderer->doc .= "    <tbody>";
                 $renderer->doc .= "      <tr><td colspan=\"" . $colspan . "\" class=\"centeralign\" STYLE='border-top: 3px solid #ccc'>";
                 $renderer->doc .= "        <span class=\"medialeft\">";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . DOKU_PLUGIN_IMAGES . "search.jpg\" onmouseover=\"this.src='" . DOKU_PLUGIN_IMAGES . "search_hilite.jpg'\" onmouseout=\"this.src='" . DOKU_PLUGIN_IMAGES . "search.jpg'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . DOKU_PLUGIN_IMAGES . "workgroup.jpg\" onmouseover=\"this.src='" . DOKU_PLUGIN_IMAGES . "workgroup_hilite.jpg'\" onmouseout=\"this.src='" . DOKU_PLUGIN_IMAGES . "workgroup.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . DOKU_PLUGIN_IMAGES . "everybody.jpg\" onmouseover=\"this.src='" . DOKU_PLUGIN_IMAGES . "everybody_hilite.jpg'\" onmouseout=\"this.src='" . DOKU_PLUGIN_IMAGES . "everybody.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "search.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "search_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "search.jpg'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "workgroup.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "everybody.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "everybody_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "everybody.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
                 $renderer->doc .= "        </span>";
                 $renderer->doc .= "        <span class=\"mediaright\">";
                 $renderer->doc .= "          <input type=\"submit\" name=\"fn[start]\" " . $page_buttons['start'] . " class=\"button\" value=\"" . $this->lang['start'] . "\" />";
