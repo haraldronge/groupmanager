@@ -462,7 +462,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                 foreach ($this->userlist as $name => $u) {
                     // print user info
                     $renderer->doc .= "    <tr>\n";
-                    if ($allow_delete_user) $renderer->doc .= "<td class=\"centeralign\"><input type=\"checkbox\" name=\"delete[" . $name . "]\ /></td>";
+                    if ($allow_delete_user) $renderer->doc .= "<td class=\"centeralign\"><input type=\"checkbox\" name=\"delete[" . $name . "]\"  /></td>";
 
                     $renderer->doc .= "      <td>" . htmlspecialchars($name);
 
