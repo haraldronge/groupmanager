@@ -35,7 +35,6 @@ if (!defined('DOKU_INC')) die();
 if (!defined('DOKU_LF')) define('DOKU_LF', "\n");
 if (!defined('DOKU_TAB')) define('DOKU_TAB', "\t");
 if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
-
 if (!defined('GROUPMANAGER_IMAGES')) define('GROUPMANAGER_IMAGES', DOKU_BASE . 'lib/plugins/groupmanager/images/');
 
 require_once DOKU_PLUGIN . 'syntax.php';
@@ -424,9 +423,9 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
 
                 $renderer->doc .= "      <tr><td colspan=\"" . $colspan . "\" class=\"centeralign\"  STYLE='border-bottom: 3px solid #ccc'>";
                 $renderer->doc .= "        <span class=\"medialeft\" >";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "search.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "search_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "search.jpg'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "workgroup.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "everybody.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "everybody_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "everybody.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "search.png\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "search_hilite.png'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "search.png'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "workgroup.png\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup_hilite.png'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup.png'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "everybody.png\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "everybody_hilite.png'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "everybody.png'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
                 $renderer->doc .= "        </span>";
                 $renderer->doc .= "        <span class=\"mediaright\">";
                 $renderer->doc .= "          <input type=\"submit\" name=\"fn[start]\" " . $page_buttons['start'] . " class=\"button\" value=\"" . $this->lang['start'] . "\" />";
@@ -548,9 +547,9 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                 $renderer->doc .= "    <tbody>";
                 $renderer->doc .= "      <tr><td colspan=\"" . $colspan . "\" class=\"centeralign\" STYLE='border-top: 3px solid #ccc'>";
                 $renderer->doc .= "        <span class=\"medialeft\">";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "search.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "search_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "search.jpg'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "workgroup.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
-                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "everybody.jpg\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "everybody_hilite.jpg'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "everybody.jpg'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "search.png\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "search_hilite.png'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "search.png'\" STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][new]\" title=\"" . $this->lang['search_prompt'] . "\" alt=\"" . $this->lang['search'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "workgroup.png\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup_hilite.png'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "workgroup.png'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][show_default]\" title=\"" . $this->lang['search_default_group'] . "\" alt=\"" . $this->lang['search_default_group'] . "\" />";
+                $renderer->doc .= "        <input type=\"image\" src=\"" . GROUPMANAGER_IMAGES . "everybody.png\" onmouseover=\"this.src='" . GROUPMANAGER_IMAGES . "everybody_hilite.png'\" onmouseout=\"this.src='" . GROUPMANAGER_IMAGES . "everybody.png'\"  STYLE=\"float: left; padding-right: 5px;\" name=\"fn[search][clear]\" title=\"" . $this->lang['clear'] . "\" alt=\"" . $this->lang['clear'] . "\" />";
                 $renderer->doc .= "        </span>";
                 $renderer->doc .= "        <span class=\"mediaright\">";
                 $renderer->doc .= "          <input type=\"submit\" name=\"fn[start]\" " . $page_buttons['start'] . " class=\"button\" value=\"" . $this->lang['start'] . "\" />";
