@@ -22,23 +22,27 @@ Installation
 
 Unzip into lib/plugins directory
 
-SYNTAX
-------
-~~GROUPMANAGER|[groups to manage]|[allowed users and groups]~~
+=====Syntax=====
+
+<code>~~groupmanager|[groups to manage]|[allowed users and groups]~~</code>
+
 Groups to manage separated by commas; the first group in the list will be the default group.
 
-EXAMPLE 1
----------
-~~GROUPMANAGER|wg_mygroup_reader|@wg_mygroup_admin~~
+**Be careful**:
+Use ''~~groupmanager~~'' in lowercase letters; ''~~GROUPMANAGER~~'' may not work!
+
+==== Example 1 ====
+
+<code>~~groupmanager|wg_mygroup_reader|@wg_mygroup_admin~~</code>
 
 Members of group ‘ wg_mygroup_reader ‘ can be managed by group ‘ wg_mygroup_admin ‘
 
-EXAMPLE 2
----------
-~~GROUPMANAGER|wg_mygroup_reader, wg_mygroup_editor|harald, @admin~~
+==== Example 2 ====
 
-Members of ‘ wg_mygroup_reader ‘ and ‘ wg_mygroup_editor ‘ can be managed by user ‘harald’
-and members of the group ‘admin’
+<code>~~groupmanager|wg_mygroup_reader, wg_mygroup_editor|harald, @admin~~</code>
+
+Members of ‘ wg_mygroup_reader ‘ and ‘ wg_mygroup_editor ‘ can be managed by user ‘harald’ and members of the group ‘admin’
+
 
 REMARKS
 -------
