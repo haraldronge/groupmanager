@@ -775,14 +775,14 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
             $currentuser = $this->_auth->retrieveUsers(0, 100000, $currentfilter);
             $currentgroups = $currentuser[$selection]['grps'];
             //user may only be part of working group parts
-            if (count($currentgroups) <= count($this->grplst)) {
+            //if (count($currentgroups) <= count($this->grplst)) { commented out, If the user is in more groups than this page manages it would skip the test to see if the user was in any other groups! 
                 foreach ($currentgroups as $g) {
                     if (!in_array($g, $this->grplst)) {
                         msg($this->lang['cant_delete_if_more_groups'], -1);
                         return false;
                     }
                 }
-            }
+            //}
         }
 
         $count = $this->_auth->triggerUserMod('delete', array($selected));
