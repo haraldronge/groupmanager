@@ -518,7 +518,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                                 }
                             }
                             if (count($update) > 0) {
-                                if ($auth->modifyUser($name, $update)) {
+                                if ($this->_auth->triggerUserMod('modify',array($name, $update))) {
                                     if ($status == 0) $status = 1;
                                 } else {
                                     $status = 2;
