@@ -519,6 +519,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
                             }
                             if (count($update) > 0) {
                                 if ($this->_auth->triggerUserMod('modify',array($name, $update))) {
+                                    io_saveFile($conf['cachedir'] . '/sessionpurge', time()); //invalidate all sessions	
                                     if ($status == 0) $status = 1;
                                 } else {
                                     $status = 2;
