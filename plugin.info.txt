@@ -1,7 +1,7 @@
 base   groupmanager
 author Harald Ronge
 email  harald@turtur.nl
-date   2010-11-28
+date   2013-05-27
 name   groupmanager plugin
 desc   Embeddable group manager
 url    http://www.turtur.nl/
