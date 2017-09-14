@@ -138,7 +138,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
      * Handle match
      */
 // is called without config, but do not know by whom, possibly with literal match
-    function handle($match, $state, $pos, &$handler)
+    function handle($match, $state, $pos, Doku_Handler $handler)
     {
 // groupmanager only
         $data = array(null, $state, $pos);
@@ -171,7 +171,7 @@ class syntax_plugin_groupmanager extends DokuWiki_Syntax_Plugin
     /**
      * Render it
      */
-    function render($mode, &$renderer, $data)
+    function render($mode, Doku_Renderer $renderer, $data)
     {
         // start usermanager
         global $auth;
